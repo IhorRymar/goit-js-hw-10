@@ -17,21 +17,21 @@ function findCountry(e) {
   const findCountry = e.target.value.trim();
   const findCountryData = e.data;
 
-  if (findCountry !== '' && findCountryData !== ' ') {
+  if (findCountry !== '') {
     fetchCountries(findCountry)
       .then(response => {
+        clearMarcUpList();
+        clearMarcUpInfo();
         if (Number(response.status) === 404) {
           Notify.failure('Oops, there is no country with that name');
         }
         if (response.length > 10) {
           Notify.info('Too many matches found. Please enter a more specific name.');
         }
-        if (findCountry === '') {
-          clearMarcUpList();
-          clearMarcUpInfo();
-        }
-        clearMarcUpList();
-        clearMarcUpInfo();
+        // if (findCountry === '') {
+        //   clearMarcUpList();
+        //   clearMarcUpInfo();
+        // }
 
         if (response.length === 1) {
           renderCountry(response);

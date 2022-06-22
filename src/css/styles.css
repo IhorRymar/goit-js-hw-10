@@ -23,8 +23,7 @@ ul {
   list-style: none;
 }
 
-.country-info,
-.country-list {
+.country-info {
   background-color: black;
   border-radius: 25px;
 }
@@ -35,7 +34,7 @@ ul {
   align-items: center;
 }
 
-.title {
+.country-info .title {
   font-size: 36px;
   color: white;
 }
